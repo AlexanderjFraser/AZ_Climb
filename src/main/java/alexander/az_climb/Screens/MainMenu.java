@@ -2,6 +2,7 @@ package alexander.az_climb.Screens;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.screen.world.SelectWorldScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.LiteralText;
 import net.minecraft.client.util.math.MatrixStack;
@@ -27,11 +28,11 @@ public class MainMenu extends Screen {
         }));
 
         this.addButton(new ButtonWidget(this.width / 2 - buttonWidth / 2, startY + spacingY, buttonWidth, buttonHeight, new LiteralText("PvP"), button -> {
-            // Handle PvP button click
+            MinecraftClient.getInstance().openScreen(new PvPMenu());
         }));
 
         this.addButton(new ButtonWidget(this.width / 2 - buttonWidth / 2, startY + 2*spacingY, buttonWidth, buttonHeight, new LiteralText("Build"), button -> {
-            // Handle Build button click
+            MinecraftClient.getInstance().openScreen(new SelectWorldScreen(this));
         }));
 
         // Add other buttons similarly...
