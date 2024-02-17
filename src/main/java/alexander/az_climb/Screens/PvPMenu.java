@@ -8,8 +8,11 @@ import net.minecraft.client.util.math.MatrixStack;
 
 public class PvPMenu extends Screen {
 
-    public PvPMenu() {
-        super(new LiteralText("Climb Mod Main Menu"));
+    private final Screen parentScreen;
+
+    public PvPMenu(Screen parent) {
+        super(new LiteralText("PVP Menu"));
+        this.parentScreen = parent;
     }
 
     @Override
@@ -23,7 +26,7 @@ public class PvPMenu extends Screen {
 
 
         this.addButton(new ButtonWidget(this.width - (buttonWidth/4) - 5, this.height - buttonHeight - 5, (buttonWidth/4), buttonHeight, new LiteralText("Back"), button -> {
-            MinecraftClient.getInstance().openScreen(new MainMenu());
+            MinecraftClient.getInstance().openScreen(parentScreen);
         }));
     }
 
@@ -32,7 +35,7 @@ public class PvPMenu extends Screen {
         this.renderBackground(matrices); // Draw the default background
 
         // Draw the version number at the bottom left
-        drawStringWithShadow(matrices, this.textRenderer, "AZ Climb mod pre-alpha", 2, this.height - 10, 0xFFFFFF);
+        drawStringWithShadow(matrices, this.textRenderer, "Coming ...", this.width/2, this.height/2, 0xFFFFFF);
 
         super.render(matrices, mouseX, mouseY, delta); // Renders the buttons and other elements added to the screen
     }

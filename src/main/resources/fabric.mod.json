@@ -29,7 +29,7 @@
 		"fabricloader": ">=0.15.6",
 		"minecraft": "~1.16.5",
 		"java": ">=16",
-		"fabric": "*"
+		"fabric": ""
 	},
 	"suggests": {
 		"another-mod": "Ranked MCSR"

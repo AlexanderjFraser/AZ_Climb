@@ -9,11 +9,14 @@ public class MapData {
     private final String description;
     private String thumbnail = null;
 
+    private Identifier thumbnailIdentifier;
+
     public MapData(String id, String name, String description, String thumbnailPath) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.thumbnail = thumbnail;
+        this.thumbnailIdentifier = new Identifier("az_climb", thumbnail);
     }
 
     // Getter for the new id field
@@ -31,5 +34,8 @@ public class MapData {
 
     public Identifier getThumbnail() {
         return new Identifier("az_climb", thumbnail); // Adjust as necessary
+    }
+    public Identifier getThumbnailIdentifier() {
+        return thumbnailIdentifier;
     }
 }

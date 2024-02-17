@@ -2,12 +2,20 @@ package alexander.az_climb.Screens;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.screen.option.AccessibilityOptionsScreen;
+import net.minecraft.client.gui.screen.option.LanguageOptionsScreen;
 import net.minecraft.client.gui.screen.world.SelectWorldScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.client.gui.widget.TexturedButtonWidget;
 import net.minecraft.text.LiteralText;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Identifier;
+
 
 public class MainMenu extends Screen {
+
+    private static final Identifier ACCESSIBILITY_ICON_TEXTURE = new Identifier("textures/gui/accessibility.png");
 
     public MainMenu() {
         super(new LiteralText("Climb Mod Main Menu"));
@@ -23,32 +31,45 @@ public class MainMenu extends Screen {
         int spacingY = 24;
 
         // Add the buttons to the screen
-        this.addButton(new ButtonWidget(this.width / 2 - buttonWidth / 2, startY, buttonWidth, buttonHeight, new LiteralText("Play"), button -> {
-            MinecraftClient.getInstance().openScreen(new PlayMenu());
+        this.addButton(new ButtonWidget(this.width / 2 - buttonWidth / 2, startY,
+                buttonWidth, buttonHeight, new LiteralText("Play"), button -> {
+            MinecraftClient.getInstance().openScreen(new PlayMenu(this));
         }));
 
-        this.addButton(new ButtonWidget(this.width / 2 - buttonWidth / 2, startY + spacingY, buttonWidth, buttonHeight, new LiteralText("PvP"), button -> {
-            MinecraftClient.getInstance().openScreen(new PvPMenu());
+        this.addButton(new ButtonWidget(this.width / 2 - buttonWidth / 2, startY + spacingY,
+                buttonWidth, buttonHeight, new LiteralText("PvP"), button -> {
+            MinecraftClient.getInstance().openScreen(new PvPMenu(this));
         }));
 
-        this.addButton(new ButtonWidget(this.width / 2 - buttonWidth / 2, startY + 2*spacingY, buttonWidth, buttonHeight, new LiteralText("Build"), button -> {
+        this.addButton(new ButtonWidget(this.width / 2 - buttonWidth / 2, startY + 2*spacingY,
+                buttonWidth, buttonHeight, new LiteralText("Build"), button -> {
             MinecraftClient.getInstance().openScreen(new SelectWorldScreen(this));
         }));
 
-        // Add other buttons similarly...
-
-        // Add the Options and Inventory buttons
-        this.addButton(new ButtonWidget((this.width / 2) - (buttonWidth / 2), startY + 3*spacingY, buttonWidth/2 - 2, buttonHeight, new LiteralText("Options..."), button -> {
+        this.addButton(new ButtonWidget((this.width / 2) - (buttonWidth / 2), startY + 3*spacingY,
+                buttonWidth/2 - 2, buttonHeight, new LiteralText("Options..."), button -> {
             MinecraftClient.getInstance().openScreen(new ModOptionsScreen(this,MinecraftClient.getInstance().options));
         }));
 
-        this.addButton(new ButtonWidget((this.width / 2) + 4, startY + 3*spacingY, buttonWidth/2 - 2, buttonHeight, new LiteralText("Inventory"), button -> {
+        this.addButton(new ButtonWidget((this.width / 2) + 4, startY + 3*spacingY, buttonWidth/2 - 2,
+                buttonHeight, new LiteralText("Inventory"), button -> {
             // Handle Inventory button click
         }));
 
-        this.addButton(new ButtonWidget(this.width - (buttonWidth/4) - 5, this.height - buttonHeight - 5, (buttonWidth/4), buttonHeight, new LiteralText("Quit"), button -> {
-            MinecraftClient.getInstance().openScreen(new QuitConfirmation());
+        this.addButton(new ButtonWidget(this.width - (buttonWidth/4) - 5, this.height - buttonHeight - 5, (buttonWidth/4),
+                buttonHeight, new LiteralText("Quit"), button -> {
+            MinecraftClient.getInstance().openScreen(new QuitConfirmation(this));
         }));
+
+        this.addButton(new TexturedButtonWidget(this.width / 2 - 124, startY + 3*spacingY, 20, 20, 0, 106, 20, ButtonWidget.WIDGETS_TEXTURE, 256, 256, (buttonWidget) -> {
+            this.client.openScreen(new LanguageOptionsScreen(this, this.client.options, this.client.getLanguageManager()));
+        }, new TranslatableText("narrator.button.language")));
+
+        this.addButton(new TexturedButtonWidget(this.width / 2 + 104, startY + 3*spacingY, 20, 20, 0, 0, 20, ACCESSIBILITY_ICON_TEXTURE, 32, 64, (buttonWidget) -> {
+            this.client.openScreen(new ModAccessibilityOptionsScreen(this, this.client.options));
+        }, new TranslatableText("narrator.button.accessibility")));
+
+
     }
 
     @Override

@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "az_climb:block/my_block" }
+  }
+}

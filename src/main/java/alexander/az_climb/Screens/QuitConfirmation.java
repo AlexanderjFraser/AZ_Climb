@@ -7,9 +7,11 @@ import net.minecraft.text.LiteralText;
 import net.minecraft.client.util.math.MatrixStack;
 
 public class QuitConfirmation extends Screen {
+    private final Screen parentScreen;
 
-    public QuitConfirmation() {
+    public QuitConfirmation(Screen parent) {
         super(new LiteralText("Quit Confirmation"));
+        this.parentScreen = parent;
     }
 
     @Override

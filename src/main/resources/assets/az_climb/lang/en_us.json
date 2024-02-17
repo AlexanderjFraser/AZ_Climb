@@ -1,0 +1,13 @@
+{
+  "block.az_climb.test_block": "Test Block",
+  "block.az_climb.start_block": "Start Block",
+  "block.az_climb.end_block": "End Block",
+  "block.az_climb.checkpoint_block": "Checkpoint Block",
+  "block.az_climb.death_block_solid": "Death Block",
+  "block.az_climb.death_block_clear": "Death Block (clear)",
+
+  "block.az_climb.my_block": "Entity Test",
+
+  "itemGroup.az_climb.block_group": "Mod Blocks",
+  "itemGroup.az_climb.functional_group": "Functional Blocks"
+}
