@@ -7,10 +7,8 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
 
-import static alexander.az_climb.AZ_Climb.MY_BLOCK_ENTITY_TYPE;
 import static alexander.az_climb.block.ModBlocks.*;
-import static alexander.az_climb.block_entity.ModBlockEntities.END_BLOCK_ENTITY;
-import alexander.az_climb.block_entity.ModBlockEntityRenderer;
+
 import org.apache.logging.log4j.LogManager;
 
 import java.util.logging.Logger;
@@ -30,7 +28,6 @@ public class AZ_ClimbClient implements ClientModInitializer {
                 }
             }
 
-            BlockEntityRendererRegistry.INSTANCE.register(MY_BLOCK_ENTITY_TYPE, ModBlockEntityRenderer::new);
 
             BlockRenderLayerMap.INSTANCE.putBlock(START_BLOCK, RenderLayer.getTranslucent());
 
