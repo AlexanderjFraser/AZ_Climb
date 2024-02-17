@@ -18,9 +18,8 @@ public class AZ_ClimbClient implements ClientModInitializer {
     public void onInitializeClient() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
 
-            // Ensure the client is not null and the current screen is the TitleScreen
+            // Sleeping Dog, can smell screen.TitleScreen instances
             if (client != null && client.currentScreen instanceof net.minecraft.client.gui.screen.TitleScreen) {
-                // Ensure we are on the client thread when we try to open the screen
                 if (client.isInSingleplayer() || client.getCurrentServerEntry() == null) {
                     client.execute(() -> {
                         client.openScreen(new MainMenu());

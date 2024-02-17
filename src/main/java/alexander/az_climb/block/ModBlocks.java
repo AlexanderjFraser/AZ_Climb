@@ -17,12 +17,9 @@ public class ModBlocks {
     public static final Block TEST_BLOCK = new CustomBlock(FabricBlockSettings.of(Material.STONE));
     public static final Block START_BLOCK = new TranslucentNonCollidableBlock();
     public static final Block END_BLOCK = new TranslucentNonCollidableBlock();
-
     public static final Block DEATH_BLOCK_CLEAR = new TranslucentNonCollidableBlock();
     public static final Block DEATH_BLOCK_SOLID = new CustomBlock(FabricBlockSettings.of(Material.STONE).luminance(15));
-
     public static final Block CHECKPOINT_BLOCK = new TranslucentNonCollidableBlock();
-    public static final Block CP_BLOCK2 = new TranslucentNonCollidableBlock();
 
     public static void registerBlocks() {
         // Block registration
@@ -33,8 +30,6 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "death_block_clear"), DEATH_BLOCK_CLEAR);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "death_block_solid"), DEATH_BLOCK_SOLID);
 
-
-        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "cp_block2"), CP_BLOCK2);
 
         // Item registration for the block
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "test_block"),
@@ -55,10 +50,6 @@ public class ModBlocks {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "death_block_solid"),
                 new BlockItem(DEATH_BLOCK_SOLID, new Item.Settings().group(FUNCTIONAL_GROUP)));
 
-
-
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "cp_block2"),
-                new BlockItem(CP_BLOCK2, new Item.Settings().group(FUNCTIONAL_GROUP)));
 
 
 

@@ -14,8 +14,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-import static alexander.az_climb.block.ModItemGroups.FUNCTIONAL_GROUP;
-
 public class AZ_Climb implements ModInitializer {
 	public static final String MOD_ID = "az_climb";
     public static final Logger LOGGER = LogManager.getLogger("az_climb");
