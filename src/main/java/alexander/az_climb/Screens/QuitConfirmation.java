@@ -1,5 +1,6 @@
 package alexander.az_climb.Screens;
 
+import alexander.az_climb.gui_Extra.QuitButtonWidget;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -23,9 +24,14 @@ public class QuitConfirmation extends Screen {
         int buttonHeight = 20;
 
         // Add the buttons to the screen
-        this.addButton(new ButtonWidget((this.width / 2) - buttonWidth - 3, (this.height / 2) + 10, buttonWidth, buttonHeight, new LiteralText("Quit"), button -> {
-            MinecraftClient.getInstance().scheduleStop();
-        }));
+        this.addButton(new QuitButtonWidget(
+                (this.width / 2) - buttonWidth - 3,
+                (this.height / 2) + 10,
+                buttonWidth,
+                buttonHeight,
+                new LiteralText("Quit"),
+                button -> MinecraftClient.getInstance().scheduleStop()
+        ));
 
         this.addButton(new ButtonWidget((this.width / 2)  + 3, (this.height / 2) + 10, buttonWidth, buttonHeight, new LiteralText("Back"), button -> {
             MinecraftClient.getInstance().openScreen(new MainMenu());

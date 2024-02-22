@@ -1,5 +1,6 @@
 package alexander.az_climb.Screens;
 
+import alexander.az_climb.gui_Extra.QuitButtonWidget;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.option.AccessibilityOptionsScreen;
@@ -56,10 +57,14 @@ public class MainMenu extends Screen {
             // Handle Inventory button click
         }));
 
-        this.addButton(new ButtonWidget(this.width - (buttonWidth/4) - 5, this.height - buttonHeight - 5, (buttonWidth/4),
-                buttonHeight, new LiteralText("Quit"), button -> {
-            MinecraftClient.getInstance().openScreen(new QuitConfirmation(this));
-        }));
+        this.addButton(new QuitButtonWidget(
+                this.width - (buttonWidth / 4) - 5,
+                this.height - buttonHeight - 5,
+                buttonWidth / 4,
+                buttonHeight,
+                new LiteralText("Quit"),
+                button -> MinecraftClient.getInstance().openScreen(new QuitConfirmation(this))
+        ));
 
         this.addButton(new TexturedButtonWidget(this.width / 2 - 124, startY + 3*spacingY, 20, 20, 0, 106, 20, ButtonWidget.WIDGETS_TEXTURE, 256, 256, (buttonWidget) -> {
             this.client.openScreen(new LanguageOptionsScreen(this, this.client.options, this.client.getLanguageManager()));
