@@ -8,9 +8,8 @@ import net.minecraft.sound.BlockSoundGroup;
 
 public class CustomBlock extends Block {
     public CustomBlock(Settings settings) {
-        super(FabricBlockSettings.of(Material.STONE) // Choose a suitable material, GLASS for translucency
-                .strength(0.5f) // Optional: Set hardness if needed
-                .sounds(BlockSoundGroup.STONE) // Sound group for glass
+        super(FabricBlockSettings.of(Material.STONE)
+                .sounds(BlockSoundGroup.STONE)
         );
     }
 }

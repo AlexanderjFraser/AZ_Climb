@@ -15,11 +15,11 @@ import static alexander.az_climb.block.ModItemGroups.FUNCTIONAL_GROUP;
 public class ModBlocks {
 
     public static final Block TEST_BLOCK = new CustomBlock(FabricBlockSettings.of(Material.STONE));
-    public static final Block START_BLOCK = new TranslucentNonCollidableBlock();
-    public static final Block END_BLOCK = new TranslucentNonCollidableBlock();
-    public static final Block DEATH_BLOCK_CLEAR = new TranslucentNonCollidableBlock();
+    public static final Block START_BLOCK = new StartBlock();
+    public static final Block END_BLOCK = new EndBlock();
+    public static final Block DEATH_BLOCK_CLEAR = new CustomBlock(FabricBlockSettings.of(Material.STONE));
     public static final Block DEATH_BLOCK_SOLID = new CustomBlock(FabricBlockSettings.of(Material.STONE).luminance(15));
-    public static final Block CHECKPOINT_BLOCK = new TranslucentNonCollidableBlock();
+    public static final Block CHECKPOINT_BLOCK = new CustomBlock(FabricBlockSettings.of(Material.STONE));
 
     public static void registerBlocks() {
         // Block registration

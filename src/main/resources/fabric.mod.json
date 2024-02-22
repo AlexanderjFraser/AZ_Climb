@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "az_climb",
-	"version": "pre-alpha",
+	"version": "0.1.0",
 	"name": "AZ_Climb",
 	"description": "Climb Mod",
 	"authors": [
@@ -19,7 +19,8 @@
 			"alexander.az_climb.AZ_Climb"
 		],
 		"client": [
-			"alexander.az_climb.AZ_ClimbClient"
+			"alexander.az_climb.AZ_ClimbClient",
+			"alexander.az_climb.hud.TimerDisplay"
 		]
 	},
 	"mixins": [

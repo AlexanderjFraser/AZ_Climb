@@ -2,6 +2,7 @@ package alexander.az_climb;
 
 import alexander.az_climb.block.ModBlocks;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
@@ -22,7 +23,12 @@ public class AZ_Climb implements ModInitializer {
 	@Override
 	public void onInitialize() {
 
+		TickHandler.register();
 		ModBlocks.registerBlocks();
+
+		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+			// Command registration goes here
+		});
 
 
 
