@@ -34,7 +34,7 @@ public class MainMenu extends Screen {
         // Add the buttons to the screen
         this.addButton(new ButtonWidget(this.width / 2 - buttonWidth / 2, startY,
                 buttonWidth, buttonHeight, new LiteralText("Play"), button -> {
-            MinecraftClient.getInstance().openScreen(new PlayMenu(this));
+            MinecraftClient.getInstance().openScreen(new PlayMenu2(this));
         }));
 
         this.addButton(new ButtonWidget(this.width / 2 - buttonWidth / 2, startY + spacingY,

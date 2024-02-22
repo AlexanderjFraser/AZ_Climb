@@ -27,6 +27,13 @@ public class PlayMenu extends Screen {
     }
 
     @Override
+    public void onClose() {
+        // Navigate back to the parent screen when ESC is pressed.
+        this.client.openScreen(parentScreen);
+    }
+
+
+    @Override
     protected void init() {
         super.init();
         int thumbnailWidth = 40;
