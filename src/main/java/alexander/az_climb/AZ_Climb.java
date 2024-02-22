@@ -1,6 +1,7 @@
 package alexander.az_climb;
 
 import alexander.az_climb.block.ModBlocks;
+import alexander.az_climb.commands.ModCommands;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -25,10 +26,7 @@ public class AZ_Climb implements ModInitializer {
 
 		TickHandler.register();
 		ModBlocks.registerBlocks();
-
-		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-			// Command registration goes here
-		});
+		ModCommands.registerCommands();
 
 
 
